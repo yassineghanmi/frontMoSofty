@@ -1,0 +1,99 @@
+<div class="container mx-auto p-16 mt-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div
+      class="max-w-sm w-full lg:max-w-full lg:flex"
+      *ngFor="let product of products"
+    >
+      <div
+        class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+        style="
+          background-image: url('https://www.rallis.com/Upload/Images/thumbnail/Product-inside.png');
+          background-position: center;
+          background-size: cover;
+        "
+        title="Woman holding a mug"
+      ></div>
+      <div
+        class="min-w-72 border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal"
+      >
+        <div class="mb-8">
+          <div class="text-gray-900 font-bold text-xl mb-2">
+            {{ product.name }}
+          </div>
+          <p class="text-gray-700 text-base min-h-28">
+            {{ product.description }}
+          </p>
+        </div>
+
+        <button
+          type="button"
+          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-4 border border-gray-400 rounded shadow"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Add Review
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="text-end p-2">
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body flex">
+                <img
+                  src="https://www.rallis.com/Upload/Images/thumbnail/Product-inside.png"
+                  alt="product"
+                  class="w-1/2 pr-2"
+                />
+                <div class="mb-8">
+                  <div class="text-gray-900 font-bold text-xl mb-2">
+                    {{ product.name }}
+                  </div>
+                  <p class="text-gray-700 text-lg min-h-28">
+                    {{ product.price }} $
+                  </p>
+                  <div class="flex items-center space-x-2">
+                    <!-- Star icons -->
+                    <div *ngFor="let arr of arrayStars; let i = index">
+                      <span class="text-2xl" (click)="showIndex(i + 1)">
+                        <i
+                          class="far fa-star text-gray-400 hover:text-yellow-500 cursor-pointer rating-star"
+                          [class.text-yellow-500]="i < rate"
+                          ></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<div class="font-[sans-serif] text-[#333]">
+  <div class="min-h-screen flex fle-col items-center justify-center py-6 px-4">
+    <div class="grid md:grid-cols-2 items-center gap-8 max-w-7xl w-full">
+      <div class="lg:h-[400px] md:h-[300px] max-md:mt-10">
+        <img
+          src="https://readymadeui.com/login-image.webp"
+          class="w-full h-full object-cover"
+          alt="Dining Experience"
+        />
+      </div>
+      <div
+        class="border border-gray-300 rounded-md p-6 max-w-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-md:mx-auto"
+      >
+        <form class="space-y-6" #formRef="ngForm" (submit)="saveUser(formRef)">
+          <div class="mb-10">
+            <h3 class="text-3xl font-extrabold">Sign up</h3>
+          </div>
+          <div>
+            <label class="text-sm mb-2 block">User name</label>
+            <div class="relative flex items-center">
+              <input
+                type="text"
+                name="userName"
+                ngModel
+                class="w-full text-sm border border-gray-300 px-4 py-3 rounded-md outline-[#333]"
+                placeholder="Enter first name"
+              />
+            </div>
+          </div>
+          <div>
+            <label class="text-sm mb-2 block">Last name</label>
+            <div class="relative flex items-center">
+              <input
+                name="lastName"
+                ngModel
+                
+                type="text"
+                
+                class="w-full text-sm border border-gray-300 px-4 py-3 rounded-md outline-[#333]"
+                placeholder="Enter last name"
+              />
+            </div>
+          </div>
+          <div>
+            <label class="text-sm mb-2 block">Email</label>
+            <div class="relative flex items-center">
+              <input
+                name="email"
+                ngModel
+                
+                type="email"
+                
+                class="w-full text-sm border border-gray-300 px-4 py-3 rounded-md outline-[#333]"
+                placeholder="Enter email"
+              />
+            </div>
+          </div>
+          <div>
+            <label class="text-sm mb-2 block">Password</label>
+            <div class="relative flex items-center">
+              <input
+                name="password"
+                ngModel
+                
+                type="password"
+                
+                class="w-full text-sm border border-gray-300 px-4 py-3 rounded-md outline-[#333]"
+                placeholder="Enter password"
+              />
+            </div>
+          </div>
+
+          <div class="!mt-10">
+            <button
+              type="submit"
+              class="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-white bg-[#333] hover:bg-black focus:outline-none"
+            >
+              Sign up
+            </button>
+          </div>
+          <p class="text-sm !mt-10 text-center">
+            Already have an account
+            <a
+              routerLink="/sign-in"
+              class="text-blue-600 hover:underline ml-1 whitespace-nowrap"
+              >Login here</a
+            >
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

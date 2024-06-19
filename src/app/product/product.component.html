@@ -1,0 +1,56 @@
+<div class="flex px-4 md:px-10 mb-4 mt-8">
+  <h1 class="flex-1 text-center font-bold uppercase text-base p-1">
+    Gestion des produits
+  </h1>
+  <button
+    class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-4 border border-gray-400 rounded shadow"
+    routerLink="/add-product"
+  >
+    Ajouter produit
+  </button>
+</div>
+
+<div class="shadow-lg rounded-lg overflow-hidden px-4 md:px-10">
+  <table class="w-full table-fixed">
+    <thead>
+      <tr class="bg-gray-100">
+        <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+          Nom du produit
+        </th>
+        <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+          prix
+        </th>
+        <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+          Ajouté le
+        </th>
+
+        <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody class="bg-white">
+      <tr *ngFor="let product of products">
+        <td class="py-4 px-6 border-b border-gray-200">{{ product.name }}</td>
+        <td class="py-4 px-6 border-b border-gray-200 truncate">
+          {{ product.price }}
+        </td>
+        <td class="py-4 px-6 border-b border-gray-200">add date here</td>
+        <td class="py-4 px-6 border-b border-gray-200 flex gap-4">
+          <span
+            class="cursor-pointer bg-red-500 text-white py-1 px-2 rounded-full text-xs font-semibold uppercase"
+            (click)="deleteProduct(product.idProduct)"
+            >delete</span
+          >
+          <span
+            class="cursor-pointer bg-yellow-500 text-white py-1 px-2 rounded-full text-xs font-semibold uppercase"
+            [routerLink]="['/update-product', product.idProduct]"
+            >update</span
+          >
+        </td>
+      </tr>
+      <!-- Add more rows here -->
+    </tbody>
+  </table>
+  <div class="my-4 text-center">{{ currentDateTime }}</div>
+</div>
